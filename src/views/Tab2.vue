@@ -11,18 +11,209 @@
           <ion-title size="large">Tab 2</ion-title>
         </ion-toolbar>
       </ion-header>
-      
-      <ExploreContainer name="Tab 2 page" />
+
+<ion-toolbar>
+    <ion-title>Title Only</ion-title>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Back Button</ion-title>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-title size="small">Small Title above a Default Title</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-title>Default Title</ion-title>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-buttons slot="secondary">
+      <ion-button>
+        <ion-icon slot="icon-only" :icon="personCircle"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" :icon="search"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+      <ion-button color="secondary">
+        <ion-icon slot="icon-only" :ios="ellipsisHorizontal" :md="ellipsisVertical"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Default Buttons</ion-title>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-buttons slot="secondary">
+      <ion-button fill="solid">
+        <ion-icon slot="start" :icon="person-circle"></ion-icon>
+        Contact
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Solid Buttons</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button fill="solid" color="secondary">
+        Help
+        <ion-icon slot="end" :icon="help-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-buttons slot="secondary">
+      <ion-button fill="outline">
+        <ion-icon slot="start" :icon="star"></ion-icon>
+        Star
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Outline Buttons</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button color="danger" fill="outline">
+        Edit
+        <ion-icon slot="end" :icon="create"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-buttons slot="secondary">
+      <ion-button>
+        Account
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+      <ion-button color="danger">
+        Edit
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Text Only Buttons</ion-title>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button auto-hide="false"></ion-menu-button>
+
+    </ion-buttons>
+    <ion-buttons slot="secondary">
+      <ion-button>
+        <ion-icon slot="icon-only" :icon="star"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Left side menu toggle</ion-title>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-buttons slot="primary">
+      <ion-button @click="clickedStar()">
+        <ion-icon slot="icon-only" :icon="star"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Right side menu toggle</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button auto-hide="false"></ion-menu-button>
+
+    </ion-buttons>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-buttons slot="primary">
+      <ion-button @click="clickedSearch()">
+        <ion-icon slot="icon-only" :icon="search"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-searchbar placeholder="Search Favorites"></ion-searchbar>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-segment value="all">
+      <ion-segment-button value="all">
+        All
+      </ion-segment-button>
+      <ion-segment-button value="favorites">
+        Favorites
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="secondary">
+      <ion-button>
+        <ion-icon slot="icon-only" :icon="personCircle"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" :icon="search"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+      <ion-button color="primary">
+        <ion-icon slot="icon-only" :ios="ellipsisHorizontal" :md="ellipsisVertical"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Secondary Toolbar</ion-title>
+  </ion-toolbar>
+
+  <ion-toolbar color="dark">
+    <ion-buttons slot="secondary">
+      <ion-button>
+        <ion-icon slot="icon-only" :icon="personCircle"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" :icon="search"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+      <ion-button color="danger">
+        <ion-icon slot="icon-only" :ios="ellipsisHorizontal" :md="ellipsisVertical"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Dark Toolbar</ion-title>
+  </ion-toolbar>
+        <ExploreContainer name="Tab 2 page" />
     </ion-content>
   </ion-page>
 </template>
 
-<script lang="ts">
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
-import ExploreContainer from '@/components/ExploreContainer.vue';
+<script>
+import { 
+  IonButton, 
+  IonButtons, 
+  IonIcon,
+  IonTitle, 
+  IonToolbar
+} from '@ionic/vue';
+import { 
+  ellipsisHorizontal,
+  ellipsisVertical, 
+  helpCircle, 
+  personCircle, 
+  search, 
+  star
+} from 'ionicons/icons';
+import { defineComponent } from 'vue';
 
-export default  {
-  name: 'Tab2',
-  components: { ExploreContainer, IonHeader, IonToolbar, IonTitle, IonContent, IonPage }
-}
+export default defineComponent({
+  components: {
+    IonButton, 
+    IonButtons, 
+    IonIcon,
+    IonTitle, 
+    IonToolbar
+  },
+  setup() {
+    return {
+      ellipsisHorizontal,
+      ellipsisVertical, 
+      helpCircle, 
+      personCircle, 
+      search, 
+      star
+    }
+  }
+});
+
+
 </script>
